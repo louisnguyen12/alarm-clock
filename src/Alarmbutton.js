@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 class Alarmbutton extends Component {
     constructor(props) {
         super(props)
-        this.state = { isSet: true };
+        this.state = { startCountdown: true };
         this.handleClick = this.handleClick.bind(this);
     }
     handleClick() {
         this.setState(state => ({
-            isSet: !state.isSet
+            startCountdown: !state.startCountdown
         }))
         this.props.hienCountdown()
     }
@@ -17,7 +17,7 @@ class Alarmbutton extends Component {
         return (
 
             <button onClick={this.handleClick} style={{ marginLeft: 15 }}>
-                {this.state.isSet ? 'Submit' : 'Submit'}
+                {this.state.startCountdown ? 'Submit' : 'Submit'}
             </button>
 
         )

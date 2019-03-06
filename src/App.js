@@ -4,6 +4,7 @@ import DDate from './Date.js';
 import logo from './logo.svg';
 import './App.css';
 import Alarmbutton from './Alarmbutton';
+import { parse } from 'querystring';
 
 
 class Time extends Component {
@@ -34,21 +35,29 @@ class Time extends Component {
 }
 
 
-function get(dataInput) {
-
-  console.log(dataInput.target.value)
-}
-
 
 class App extends Component {
-  state = {
-    displayCountdown: false
-
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      displayCountdown: false,
+      timeInput: '',
+    }
+    this.cleanCount = React.createRef()
   }
 
-  showCountdown() {
+
+  showCountdown =()=> {
     this.setState({ displayCountdown: true })
   }
+
+  get(dataInput) {
+    console.log(dataInput.target.value)
+    this.setState({ timeInput: dataInput.target.value })
+    // this.cleanCount.current.stop()
+  }
+
 
   render() {
     return (
@@ -57,9 +66,11 @@ class App extends Component {
           <DDate />
           <Time />
           <div className="btn_submit">
-            Set alarm : <input onChange={value => get(value)} type="datetime-local" name="alarm" />
-
-            <Alarmbutton hienCountdown={this.showCountdown.bind(this)} />
+            Set alarm : <input onChange={value => this.get(value)} type="datetime-local" name="alarm" />
+            <button onClick={this.showCountdown}style={{ marginLeft: 15 }}>
+             Submit
+            </button>
+            
           </div>
         </div>
 
@@ -67,7 +78,7 @@ class App extends Component {
 
         {
           this.state.displayCountdown &&
-          <Countdown />
+          <Countdown date={this.state.timeInput} />
         }
         {/* Set this correspond to the alarm time set by users */}
       </div>
