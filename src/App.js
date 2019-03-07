@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Countdown from './Countdown.js';
 import DDate from './Date.js';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import Alarmbutton from './Alarmbutton';
-import { parse } from 'querystring';
+// import { parse } from 'querystring';
 
 
 class Time extends Component {
@@ -39,23 +38,30 @@ class Time extends Component {
 class App extends Component {
   constructor(props) {
     super(props)
-  
+
     this.state = {
-      displayCountdown: false,
+      displayCountdown: false, // This state was set to be called again in showCountdown
       timeInput: '',
     }
-    this.cleanCount = React.createRef()
+
   }
 
+  undisplayCountdown = () => {
+    console.log("Xoa Countdown thanh cong")
+    this.setState({ displayCountdown: false })
+  }
 
-  showCountdown =()=> {
+  // This function hides the Countdown timer
+
+  showCountdown = () => {
     this.setState({ displayCountdown: true })
   }
+  // This function makes clicking Submit button shows the Countdown timer
+
 
   get(dataInput) {
     console.log(dataInput.target.value)
     this.setState({ timeInput: dataInput.target.value })
-    // this.cleanCount.current.stop()
   }
 
 
@@ -67,10 +73,12 @@ class App extends Component {
           <Time />
           <div className="btn_submit">
             Set alarm : <input onChange={value => this.get(value)} type="datetime-local" name="alarm" />
-            <button onClick={this.showCountdown}style={{ marginLeft: 15 }}>
-             Submit
+            <button onClick={this.showCountdown} style={{ marginLeft: 15 }}>
+              Submit
             </button>
-            
+            {/* Set this correspond to the alarm time set by users in timeInput*/}
+            {/* showCountdown is to display the countdown timer when click on the "Submit" button */}
+            {/* This button is set to input local date and time correspond to your computer format */}
           </div>
         </div>
 
@@ -78,9 +86,9 @@ class App extends Component {
 
         {
           this.state.displayCountdown &&
-          <Countdown date={this.state.timeInput} />
+          <Countdown date={this.state.timeInput} xoaCount={this.undisplayCountdown} />
         }
-        {/* Set this correspond to the alarm time set by users */}
+
       </div>
     );
   }

@@ -19,8 +19,8 @@ export default class displayDate extends Component {
     }
 
     day() {
-        const layDay = new Date().getDay()
-        switch (layDay) {
+        const getDay = new Date().getDay()
+        switch (getDay) {
             case 0:
                 return 'Sunday';
 

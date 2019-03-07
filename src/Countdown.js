@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
-
+import PropTypes from 'prop-types';
 /**
  * Note : 
  * If you're using react v 15.4 or less
@@ -35,8 +34,11 @@ class Countdown extends Component {
 // Tinh toan thoi gian con lai sau khi inputData - Date
   calculateCountdown(dataInput) {
     let diff = (Date.parse(new Date(dataInput)) - Date.parse(new Date())) / 1000;
-
-    if (diff <= 0) return false;
+console.log(diff)
+    if (diff <= 0) {
+      this.props.xoaCount()
+      return false;
+    }
 
     const timeLeft = {
       years: 0,
@@ -88,7 +90,7 @@ class Countdown extends Component {
 
   render() {
     const countDown = this.state;
-
+    console.log("Day la prop cua Countdown", this.props )
     return (
       <div className="Countdown">
         <span className="Countdown-col">
@@ -119,6 +121,7 @@ class Countdown extends Component {
             <span>Sec</span>
           </span>
         </span>
+        
       </div>
     );
   }
