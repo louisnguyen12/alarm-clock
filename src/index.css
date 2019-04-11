@@ -5,9 +5,9 @@ body {
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 80px;
-}
+} */
 
 .App-header {
   background-color: #222;
@@ -15,25 +15,26 @@ body {
   color: white;
 }
 
-.App-header .title{
+.title{
   margin-top: 40px;
 }
 
-.App-header a{
+/* .App-header a{
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   transition: .2s all;
-}
-.App-header a:hover{
-  opacity: .7;
-}
+} */
 
-.githubIcon{
+/* .App-header a:hover{
+  opacity: .7;
+} */
+
+/* .githubIcon{
   height: 30px;
   margin-right: 5px;
-}
+} */
 
 .Countdown{
   margin: 10px auto;

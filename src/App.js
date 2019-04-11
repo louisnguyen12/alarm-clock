@@ -1,37 +1,11 @@
 import React, { Component } from 'react';
 import Countdown from './Countdown.js';
 import DDate from './Date.js';
-// import logo from './logo.svg';
+import Time from './Time.js';
 import './App.css';
-// import { parse } from 'querystring';
 
 
-class Time extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      time: new Date(),
-    }
 
-  }
-  componentDidMount() {
-    this.interval = setInterval(() => {
-      this.setState({ time: new Date() })
-    }, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval)
-  }
-  render() {
-
-    return (
-      <h1>
-        {this.state.time.toLocaleTimeString()}
-      </h1>
-    )
-  }
-}
 
 
 
@@ -40,21 +14,24 @@ class App extends Component {
     super(props)
 
     this.state = {
-      displayCountdown: false, // This state was set to be called again in showCountdown
+      displayCountdown: false,
       timeInput: '',
+      errors: {},
+      current: 'mail'
     }
-
   }
 
   undisplayCountdown = () => {
     console.log("Xoa Countdown thanh cong")
     this.setState({ displayCountdown: false })
   }
-
   // This function hides the Countdown timer
 
   showCountdown = () => {
-    this.setState({ displayCountdown: true })
+
+    if (this.state.timeInput.length > 0) {
+      this.setState({ displayCountdown: true })
+    }
   }
   // This function makes clicking Submit button shows the Countdown timer
 
@@ -66,9 +43,14 @@ class App extends Component {
 
 
   render() {
+
     return (
+
+
+
       <div className="App">
         <div className="App-header">
+        <h1>Online Alarm Clock</h1>
           <DDate />
           <Time />
           <div className="btn_submit">
@@ -88,6 +70,7 @@ class App extends Component {
           this.state.displayCountdown &&
           <Countdown date={this.state.timeInput} xoaCount={this.undisplayCountdown} />
         }
+        {/* This is the code to render Countdown timer when clicking the Submit Button */}
 
       </div>
     );

@@ -47,9 +47,9 @@ export default class displayDate extends Component {
     render() {
         return (
             <div>
-                <h1>
+                <h2>
                     {this.state.display_Date.toLocaleDateString()}
-                </h1>
+                </h2>
                 <div>
                     {this.day()}
                 </div>
