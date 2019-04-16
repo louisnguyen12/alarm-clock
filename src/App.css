@@ -42,14 +42,35 @@ li a:hover {
   min-height: 50vh;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.dropDown {
+  margin: 15px 0px 0px 0px;
+  border-radius: 4px;
+  width: 250px;
+  text-align: center;
+}
+
+.dropDown:hover {
+  background-color: rgb(187, 187, 187); 
+}
+.dateTime input{
+  border-radius: 4px;
+}
+
+.dateTime button{
+  border-radius: 4px;
+  margin-left: 15px;
+}
+
+.dateTime button:hover {
+  background-color: rgb(187, 187, 187);
 }
 
 @keyframes App-logo-spin {

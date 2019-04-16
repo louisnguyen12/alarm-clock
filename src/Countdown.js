@@ -90,7 +90,7 @@ console.log(diff)
 
   render() {
     const countDown = this.state;
-    console.log("Day la prop cua Countdown", this.props )
+    console.log("Dang countdown", this.props )
     return (
       <div className="Countdown">
         <span className="Countdown-col">

@@ -10,8 +10,9 @@ class Contact extends Component {
         <h1>Contact</h1>
         <p>
           <address>
-            <br />Email: qnguyen1209@gmail.com
-            <br />Telegram: @williamdafren
+            <br/>Email: qnguyen1209@gmail.com
+            <br/>
+            <br/>Telegram: @williamdafren
           </address>
         </p>
       </div>

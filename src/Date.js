@@ -41,7 +41,6 @@ export default class displayDate extends Component {
 
             case 6:
                 return "Saturday";
-
         }
     }
     render() {

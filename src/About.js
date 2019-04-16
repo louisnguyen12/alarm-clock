@@ -8,7 +8,9 @@ class About extends Component {
             <div>
                 <h1>About</h1>
                 <address>
-                    <br/>Nguyen Ha Quang
+                    <br/>Louis Nguyen
+                    <br/>
+                    <br/>React.js Learner
                 </address>
             </div>
         )
